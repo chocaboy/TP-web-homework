@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/bootstrap.min.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand">AskPupkin</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit">Ask!</button>
+            </form>
+            <div class="d-flex gap-2 align-items-center">
+                <div class="content">
+                    <div class="content__links d-flex gap-3">
+                        <a href="#">Log in</a>
+                        <a href="#">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container p-2 gap-2">
+        <div class="row">
+            <div class="col-9 d-flex flex-column gap-3 me-4">
+                <div class="align-items-center">
+                    <h3>Log In</h3>
+                </div>
+
+                <p class="text-danger">Sorry, this email address allready registred!</p>
+
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <h4 class="m-0">Login</h4>
+                    </div>
+                    <div class="col-4">
+                        <form class="d-flex" role="form">
+                            <input class="form-control" type="text" aria-label="Login"
+                                placeholder="Enter your login here" />
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <h4 class="m-0">Email</h4>
+                    </div>
+                    <div class="col-4">
+                        <form class="d-flex" role="form">
+                            <input class="form-control" type="text" aria-label="Password" placeholder="Enter your Email here" />
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <h4 class="m-0">NickName</h4>
+                    </div>
+                    <div class="col-4">
+                        <form class="d-flex" role="form">
+                            <input class="form-control" type="text" aria-label="Password" placeholder="Enter your NickName here" />
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <h4 class="m-0">Password</h4>
+                    </div>
+                    <div class="col-4">
+                        <form class="d-flex" role="form">
+                            <input class="form-control" type="text" aria-label="Password" placeholder="************" />
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <h4 class="m-0">Repeat Password</h4>
+                    </div>
+                    <div class="col-4">
+                        <form class="d-flex" role="form">
+                            <input class="form-control" type="text" aria-label="Password" placeholder="************" />
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <h4 class="m-0">Upload avatar</h4>
+                    </div>
+                    <div class="col-2">
+                        <form class="d-flex" role="form">
+                            <input class="form-control" type="text" aria-label="Password"/>
+                        </form>
+                    </div>
+                    <div class="col-2">
+                        <form class="d-flex" role="form">
+                            <button type="button" class="btn btn-light">Choose</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="offset-3 d-flex flex-column gap-3">
+                    <button class="btn btn-dark col-2" type="submit">Register!</button>
+                </div>
+            </div>
+
+
+            <div class="col d-flex flex-column gap-4 mt-5">
+                <section class="popular-tags">
+                    <h4>Popular Tags</h4>
+                    <button type="button" class="btn btn-primary">Python</button>
+                    <button type="button" class="btn btn-secondary">Django</button>
+                    <button type="button" class="btn btn-success">Golang</button>
+                    <button type="button" class="btn btn-danger">Perl</button>
+                    <button type="button" class="btn btn-warning">TechnoPark</button>
+                    <button type="button" class="btn btn-info">Golang</button>
+                    <button type="button" class="btn btn-light">Ubuntu</button>
+                    <button type="button" class="btn btn-dark">Firefox</button>
+                    <button type="button" class="btn btn-link">Linux</button>
+                </section>
+                <section class="best-members d-flex flex-column">
+                    <h4>Best Members</h4>
+                    <a href="#" class="fs-5">Mr. Freeman</a>
+                    <a href="#" class="fs-5">Mr. Goodman</a>
+                    <a href="#" class="fs-5">Mr. Freeman</a>
+                    <a href="#" class="fs-5">Mr. Goodman</a>
+                    <a href="#" class="fs-5">Mr. Freeman</a>
+                    <a href="#" class="fs-5">Mr. Goodman</a>
+                </section>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
