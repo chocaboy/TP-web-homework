@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/bootstrap.min.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand">AskPupkin</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit">Ask!</button>
+            </form>
+            <div class="d-flex gap-2 align-items-center">
+
+                <!--  авторизованный пользователь  
+                <div class="image">
+                    <img src="img" alt="img" />
+                </div>
+
+
+                <div class="content">
+                    <div class="content__name">Dr. Pepper</div>
+                    <div class="content__links">
+                        <a href="#">Settings</a>
+                        <a href="#">Log out</a>
+                    </div>
+                </div>
+                -->
+
+                <!--  не авторизованный пользователь -->
+                <div class="content">
+                    <div class="content__links d-flex gap-3">
+                        <a href="#">Log in</a>
+                        <a href="#">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container p-2 gap-2">
+        <div class="row g-5">
+            <div class="col-9 d-flex flex-column gap-3">
+            </div>
+
+            <div class="col d-flex flex-column gap-4 mt-5">
+                <section class="popular-tags">
+                    <h4>Popular Tags</h4>
+                    <button type="button" class="btn btn-primary">Python</button>
+                    <button type="button" class="btn btn-secondary">Django</button>
+                    <button type="button" class="btn btn-success">Golang</button>
+                    <button type="button" class="btn btn-danger">Perl</button>
+                    <button type="button" class="btn btn-warning">TechnoPark</button>
+                    <button type="button" class="btn btn-info">Golang</button>
+                    <button type="button" class="btn btn-light">Ubuntu</button>
+                    <button type="button" class="btn btn-dark">Firefox</button>
+                    <button type="button" class="btn btn-link">Linux</button>
+                </section>
+                <section class="best-members d-flex flex-column">
+                    <h4>Best Members</h4>
+                    <a href="#" class="fs-5">Mr. Freeman</a>
+                    <a href="#" class="fs-5">Mr. Goodman</a>
+                    <a href="#" class="fs-5">Mr. Freeman</a>
+                    <a href="#" class="fs-5">Mr. Goodman</a>
+                    <a href="#" class="fs-5">Mr. Freeman</a>
+                    <a href="#" class="fs-5">Mr. Goodman</a>
+                </section>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
