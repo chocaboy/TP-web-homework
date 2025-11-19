@@ -9,13 +9,15 @@
 </head>
 
 <body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container">
-            <a class="navbar-brand">AskPupkin</a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit">Ask!</button>
-            </form>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container d-flex row-2 align-items-center">
+            <a class="navbar-brand" href="/">AskPupkin</a>
+            <div class="d-flex flex-grow-1 justify-content-center">
+                <form class="d-flex w-75" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Ask!</button>
+                </form>
+            </div>
             <div class="d-flex gap-2 align-items-center">
                 <div class="content">
                     <div class="content__links d-flex gap-3">
@@ -31,7 +33,7 @@
         <div class="row">
             <div class="col-9 d-flex flex-column gap-3 me-4">
                 <div class="align-items-center">
-                    <h3>Log In</h3>
+                    <h3>Registration</h3>
                 </div>
 
                 <p class="text-danger">Sorry, this email address allready registred!</p>
@@ -54,7 +56,8 @@
                     </div>
                     <div class="col-4">
                         <form class="d-flex" role="form">
-                            <input class="form-control" type="text" aria-label="Password" placeholder="Enter your Email here" />
+                            <input class="form-control" type="text" aria-label="Password"
+                                placeholder="Enter your Email here" />
                         </form>
                     </div>
                 </div>
@@ -65,7 +68,8 @@
                     </div>
                     <div class="col-4">
                         <form class="d-flex" role="form">
-                            <input class="form-control" type="text" aria-label="Password" placeholder="Enter your NickName here" />
+                            <input class="form-control" type="text" aria-label="Password"
+                                placeholder="Enter your NickName here" />
                         </form>
                     </div>
                 </div>
@@ -98,7 +102,7 @@
                     </div>
                     <div class="col-2">
                         <form class="d-flex" role="form">
-                            <input class="form-control" type="text" aria-label="Password"/>
+                            <input class="form-control" type="text" aria-label="Password" />
                         </form>
                     </div>
                     <div class="col-2">
@@ -108,8 +112,12 @@
                     </div>
                 </div>
 
-                <div class="offset-3 d-flex flex-column gap-3">
-                    <button class="btn btn-dark col-2" type="submit">Register!</button>
+                <div class="row">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-8">
+                        <button class="btn btn-dark col-2" type="submit">Register!</button>
+                    </div>
                 </div>
             </div>
 
@@ -117,16 +125,19 @@
             <div class="col d-flex flex-column gap-4 mt-5">
                 <section class="popular-tags">
                     <h4>Popular Tags</h4>
-                    <button type="button" class="btn btn-primary">Python</button>
-                    <button type="button" class="btn btn-secondary">Django</button>
-                    <button type="button" class="btn btn-success">Golang</button>
-                    <button type="button" class="btn btn-danger">Perl</button>
-                    <button type="button" class="btn btn-warning">TechnoPark</button>
-                    <button type="button" class="btn btn-info">Golang</button>
-                    <button type="button" class="btn btn-light">Ubuntu</button>
-                    <button type="button" class="btn btn-dark">Firefox</button>
-                    <button type="button" class="btn btn-link">Linux</button>
+                    <div class="d-flex flex-wrap gap-3">
+                        <button type="button" class="btn btn-primary">Python</button>
+                        <button type="button" class="btn btn-secondary">Django</button>
+                        <button type="button" class="btn btn-success">Golang</button>
+                        <button type="button" class="btn btn-danger">Perl</button>
+                        <button type="button" class="btn btn-warning">TechnoPark</button>
+                        <button type="button" class="btn btn-info">Golang</button>
+                        <button type="button" class="btn btn-light">Ubuntu</button>
+                        <button type="button" class="btn btn-dark">Firefox</button>
+                        <button type="button" class="btn btn-link">Linux</button>
+                    </div>
                 </section>
+
                 <section class="best-members d-flex flex-column">
                     <h4>Best Members</h4>
                     <a href="#" class="fs-5">Mr. Freeman</a>
