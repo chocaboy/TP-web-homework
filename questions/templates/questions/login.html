@@ -1,0 +1,41 @@
+{% extends "questions/base.html" %}
+{% load static %}
+
+{% block auth %}
+{% include "questions/blocks/unauth_user.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="align-items-center">
+    <h3>Log In</h3>
+</div>
+
+<p class="text-danger">Sorry, wrong password!</p>
+
+<div class="row align-items-center">
+    <div class="col-2">
+        <h4 class="m-0">Login</h4>
+    </div>
+    <div class="col-4">
+        <form class="d-flex" role="form">
+            <input class="form-control" type="text" aria-label="Login" placeholder="Enter your login here" />
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <h4 class="m-0">Password</h4>
+    </div>
+    <div class="col-4">
+        <form class="d-flex" role="form">
+            <input class="form-control" type="text" aria-label="Password" placeholder="************" />
+        </form>
+    </div>
+</div>
+
+<div class="offset-2 d-flex flex-column gap-3">
+    <button class="btn btn-dark col-2" type="submit">Log in!</button>
+    <a href="{% url 'questions:signup' %}">create new account</a>
+</div>
+{% endblock %}
