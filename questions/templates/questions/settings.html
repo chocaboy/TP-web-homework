@@ -1,0 +1,74 @@
+{% extends "questions/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="align-items-center">
+    <h3>Settings: {{ user.username }} </h3>
+</div>
+
+{% if user_form.errors or profile_form.errors %}
+<div class="alert alert-danger">
+    {% for field, errors in user_form.errors.items %}
+        {% for error in errors %}
+            <p class="text-danger m-0">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+    {% for field, errors in profile_form.errors.items %}
+        {% for error in errors %}
+            <p class="text-danger m-0">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="post" action="{% url 'questions:settings' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="row align-items-center mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Login</h4>
+        </div>
+        <div class="col-4">
+            {{ user_form.username }}
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Email</h4>
+        </div>
+        <div class="col-4">
+            {{ user_form.email }}
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Avatar</h4>
+        </div>
+        <div class="col-7 image">
+            {% if user.profile.avatar %}
+            <img src="{{ user.profile.avatar.url }}" alt="img" style="max-width: 150px; height: auto;" />
+            {% else %}
+            <img src="/static/questions/images/image.png" alt="img" style="max-width: 150px; height: auto;" />
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Change avatar</h4>
+        </div>
+        <div class="col-4">
+            {{ profile_form.avatar }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-8">
+            <button class="btn btn-dark col-2" type="submit">Save</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

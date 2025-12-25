@@ -1,0 +1,74 @@
+{% extends "questions/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="align-items-center">
+    <h3>Registration</h3>
+</div>
+
+{% if form.errors %}
+<div class="alert alert-danger">
+    {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+            <p class="text-danger m-0">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="post" action="{% url 'questions:signup' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="row align-items-center mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Login</h4>
+        </div>
+        <div class="col-4">
+            {{ form.username }}
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Email</h4>
+        </div>
+        <div class="col-4">
+            {{ form.email }}
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Password</h4>
+        </div>
+        <div class="col-4">
+            {{ form.password1 }}
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Repeat Password</h4>
+        </div>
+        <div class="col-4">
+            {{ form.password2 }}
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Upload avatar</h4>
+        </div>
+        <div class="col-4">
+            {{ form.avatar }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-8">
+            <button class="btn btn-dark col-2" type="submit">Register!</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
