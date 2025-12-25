@@ -1,76 +1,74 @@
 {% extends "questions/base.html" %}
 {% load static %}
 
-{% block auth %}
-{% include "questions/blocks/auth_user.html" %}
-{% endblock %}
-
 {% block content %}
 <div class="align-items-center">
-    <h3>Settings: {{ user.nickname }} </h3>
+    <h3>Settings: {{ user.username }} </h3>
 </div>
 
-<div class="row align-items-center">
-    <div class="col-3">
-        <h4 class="m-0">Login</h4>
-    </div>
-    <div class="col-4">
-        <form class="d-flex" role="form">
-            <input class="form-control" type="text" aria-label="Login" placeholder="{{ user.login }}" />
-        </form>
-    </div>
+{% if user_form.errors or profile_form.errors %}
+<div class="alert alert-danger">
+    {% for field, errors in user_form.errors.items %}
+        {% for error in errors %}
+            <p class="text-danger m-0">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+    {% for field, errors in profile_form.errors.items %}
+        {% for error in errors %}
+            <p class="text-danger m-0">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
 </div>
+{% endif %}
 
-<div class="row">
-    <div class="col-3">
-        <h4 class="m-0">Email</h4>
+<form method="post" action="{% url 'questions:settings' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="row align-items-center mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Login</h4>
+        </div>
+        <div class="col-4">
+            {{ user_form.username }}
+        </div>
     </div>
-    <div class="col-4">
-        <form class="d-flex" role="form">
-            <input class="form-control" type="text" aria-label="Email" placeholder="{{ user.email }}" />
-        </form>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-3">
-        <h4 class="m-0">NickName</h4>
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Email</h4>
+        </div>
+        <div class="col-4">
+            {{ user_form.email }}
+        </div>
     </div>
-    <div class="col-4">
-        <form class="d-flex" role="form">
-            <input class="form-control" type="text" aria-label="Nickname" placeholder="{{ user.nickname }}" />
-        </form>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-3">
-        <h4 class="m-0">Upload avatar</h4>
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Avatar</h4>
+        </div>
+        <div class="col-7 image">
+            {% if user.profile.avatar %}
+            <img src="{{ user.profile.avatar.url }}" alt="img" style="max-width: 150px; height: auto;" />
+            {% else %}
+            <img src="/static/questions/images/image.png" alt="img" style="max-width: 150px; height: auto;" />
+            {% endif %}
+        </div>
     </div>
-    <div class="col-7 image">
-        <img src="/static/image.png" alt="img" style="max-width: 150px; height: auto;" />
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-3">
+    <div class="row mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Change avatar</h4>
+        </div>
+        <div class="col-4">
+            {{ profile_form.avatar }}
+        </div>
     </div>
-    <div class="col-2">
-        <form class="d-flex" role="form">
-            <input class="form-control" type="text" aria-label="Password" />
-        </form>
+
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-8">
+            <button class="btn btn-dark col-2" type="submit">Save</button>
+        </div>
     </div>
-    <div class="col-2">
-        <form class="d-flex" role="form">
-            <button type="button" class="btn btn-light">Choose</button>
-        </form>
-    </div>
-</div>
-<div class="row">
-    <div class="col-3">
-    </div>
-    <div class="col-8">
-        <button class="btn btn-dark col-2" type="submit">Save</button>
-    </div>
-</div>
+</form>
 {% endblock %}
