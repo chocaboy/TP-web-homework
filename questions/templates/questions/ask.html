@@ -1,48 +1,53 @@
 {% extends "questions/base.html" %}
 {% load static %}
 
-{% block auth %}
-{% include "questions/blocks/auth_user.html" %}
-{% endblock %}
-
 {% block content %}
 <div class="align-items-center">
     <h3>New Question</h3>
 </div>
 
-<div class="row align-items-center">
-    <div class="col-2">
-        <h4 class="m-0">Title</h4>
-    </div>
-    <div class="col-10">
-        <form class="d-flex" role="form">
-            <input class="form-control" type="text" aria-label="Question title" />
-        </form>
-    </div>
+{% if form.errors %}
+<div class="alert alert-danger">
+    {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+            <p class="text-danger m-0">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
 </div>
+{% endif %}
 
-<div class="row">
-    <div class="col-2">
-        <h4 class="m-0">Text</h4>
+<form method="post" action="{% url 'questions:ask' %}">
+    {% csrf_token %}
+    
+    <div class="row align-items-center mb-3">
+        <div class="col-2">
+            <h4 class="m-0">Title</h4>
+        </div>
+        <div class="col-10">
+            {{ form.title }}
+        </div>
     </div>
-    <div class="col-10">
-        <form class="d-flex" role="form">
-            <textarea class="form-control" rows="8" aria-label="Question text"></textarea>
-        </form>
-    </div>
-</div>
 
-<div class="row align-items-center">
-    <div class="col-2">
-        <h4 class="m-0">Tags</h4>
+    <div class="row mb-3">
+        <div class="col-2">
+            <h4 class="m-0">Text</h4>
+        </div>
+        <div class="col-10">
+            {{ form.text }}
+        </div>
     </div>
-    <div class="col-10">
-        <form class="d-flex" role="form">
-            <input class="form-control" type="text" aria-label="Question tags" />
-        </form>
+
+    <div class="row align-items-center mb-3">
+        <div class="col-2">
+            <h4 class="m-0">Tags</h4>
+        </div>
+        <div class="col-10">
+            {{ form.tags }}
+        </div>
     </div>
-</div>
-<div class="offset-2">
-    <button class="btn btn-dark" type="submit">Ask!</button>
-</div>
+    
+    <div class="offset-2">
+        <button class="btn btn-dark" type="submit">Ask!</button>
+    </div>
+</form>
 {% endblock %}

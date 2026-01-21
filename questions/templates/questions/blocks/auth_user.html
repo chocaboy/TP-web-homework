@@ -1,10 +1,14 @@
 <div class="image">
+    {% if user.profile.avatar %}
+    <img src="{{ user.profile.avatar.url }}" alt="img" style="max-width: 50px; height: auto;" />
+    {% else %}
     <img src="/static/questions/images/image.png" alt="img" style="max-width: 50px; height: auto;" />
+    {% endif %}
 </div>
 <div class="content">
-    <div class="content__name">Dr. Pepper</div>
+    <div class="content__name">{{ user.username }}</div>
     <div class="content__links">
         <a href="{% url 'questions:settings' %}">Settings</a>
-        <a href="#">Log out</a>
+        <a href="{% url 'questions:logout' %}">Log out</a>
     </div>
 </div>
