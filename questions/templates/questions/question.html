@@ -22,8 +22,8 @@
             <div class="d-flex gap-2 align-items-center">
                 <a>Tags:</a>
                 <div class="footer__tags">
-                    {% for t in question.tags %}
-                    <a href="{% url 'questions:tag' t %}"> {{ t }} </a>
+                    {% for t in question.tags.all %}
+                    <a href="{% url 'questions:tag' tag=t %}"> {{ t }} </a>
                     {% endfor %}
                 </div>
             </div>

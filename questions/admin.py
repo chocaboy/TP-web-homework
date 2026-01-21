@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from questions.models import Tag, Question, Answer, Profile
+
+admin.site.register(Tag)
+admin.site.register(Question)
+admin.site.register(Answer)
+admin.site.register(Profile)

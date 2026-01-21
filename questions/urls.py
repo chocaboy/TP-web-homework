@@ -1,16 +1,18 @@
 from django.urls import path
 
-from questions.views import index, question, hotQuestions, tag, login, signup, ask, settings
+from questions import views
 
 app_name = 'questions'
 
 urlpatterns = [
-    path('', index, name='new_questions'),
-    path('hot/', hotQuestions, name='hot_questions'),
-    path('tag/<str:tag>/', tag, name='tag'),
-    path('question/<int:id>/', question, name='question'),
-    path('login/', login, name='login'),
-    path('signup/', signup, name='signup'),
-    path('ask/', ask, name='ask'),
-    path('settings/', settings, name='settings'),
+    path('', views.index, name="new_questions"),
+    path('hot/', views.hot_questions, name="hot_questions"),
+    path('ask/', views.ask, name="ask"),
+    path('signup/', views.signup, name="signup"),
+    path('login/', views.login, name="login"),
+    path('settings/', views.settings, name="settings"),
+    path('question/<int:question_id>/', views.question, name="question"),
+    path('question/<int:question_id>/like/', views.like_question, name='like_question'),
+    path('answer/<int:answer_id>/like/', views.like_answer, name='like_answer'),
+    path('tag/<str:tag>/', views.tag, name='tag'),
 ]

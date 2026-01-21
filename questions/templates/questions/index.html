@@ -32,8 +32,8 @@
                 <a href="{% url 'questions:question' q.id %}" class="btn btn-outline-success">Answers (2)</a>
                 <span>Tags:</span>
                 <div class="footer__tags">
-                    {% for t in q.tags %}
-                    <a href="{% url 'questions:tag' t %}"> {{ t }} </a>
+                    {% for t in q.tags.all %}
+                    <a href="{% url 'questions:tag' tag=t %}"> {{ t }} </a>
                     {% endfor %}
                 </div>
             </div>
